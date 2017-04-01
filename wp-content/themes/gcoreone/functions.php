@@ -18,8 +18,9 @@ if (!function_exists("galcore_setup")) {
 
 if (!function_exists( "galcore_scripts")) {
 	function galcore_scripts() {
-		wp_enqueue_script('bootstrap-js', '//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js',array('jquery'),true);
+		wp_register_script('bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'));
 		wp_register_script('functions', get_template_directory_uri() . '/js/function.js', array('jquery'));
+		wp_enqueue_script('bootstrap-js');
 		wp_enqueue_script('functions');
 
 	}
@@ -28,8 +29,12 @@ if (!function_exists( "galcore_scripts")) {
 
 if (!function_exists( "galcore_styles")) {
 	function galcore_styles() {
-		wp_enqueue_style('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css',true);
+		//wp_enqueue_style('font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css',true);
+		wp_register_style('bootstrap-min', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css');
+		wp_register_style('font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css');
 		wp_register_style('styles', get_template_directory_uri() . '/css/styles.css');
+		wp_enqueue_style('bootstrap-min');
+		wp_enqueue_style('font-awesome');
 		wp_enqueue_style('styles');
 
 	}
@@ -50,31 +55,31 @@ if ( ! function_exists("galcore_add_widgets_footer")) {
 		register_sidebar( array(
 			'name' => __('Footer Left','galcore'),
 			'id' => 'sidebar-footer-left',
-			'description' => __('Widgets para el footer','galcore'),
-			'before_widget' => '<li id="%1$s" class="widget %2$s">',
-			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widgettitle">',
-			'after_title' => '</h2>'
+			'description' => __('Widgets izquierdo para el footer','galcore'),
+			'before_widget' => '<div class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
 		));
 
 		register_sidebar( array(
 			'name' => __('Footer Right','galcore'),
 			'id' => 'sidebar-footer-right',
-			'description' => __('Widgets para el footer','galcore'),
-			'before_widget' => '<li id="%1$s" class="widget %2$s">',
-			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widgettitle">',
-			'after_title' => '</h2>'
+			'description' => __('Widgets derecho para el footer','galcore'),
+			'before_widget' => '<div class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
 		));
 
 		register_sidebar( array(
 			'name' => __('Footer Center','galcore'),
 			'id' => 'sidebar-footer-center',
-			'description' => __('Widgets para el footer','galcore'),
-			'before_widget' => '<li id="%1$s" class="widget %2$s">',
-			'after_widget' => '</li>',
-			'before_title' => '<h2 class="widgettitle">',
-			'after_title' => '</h2>'
+			'description' => __('Widgets central para el footer','galcore'),
+			'before_widget' => '<div class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
 		));
 
 	}
