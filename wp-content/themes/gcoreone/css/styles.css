@@ -18,3 +18,34 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
+
+.footerLeft {
+  float: left;
+}
+
+.footerCenter {
+  float: left;
+}
+
+.footerRight {
+  float: left;
+}
+
+.socialNetwork {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+#widgets-footer {
+  background-color: #f5f5f5 !important;
+  position: relative;
+}
+
+.legal {
+  background-color: #f5f5f5 !important;
+}
+
+.rrss {
+  background-color: #f5f5f5 !important;
+  padding-bottom: 10px;
+}
